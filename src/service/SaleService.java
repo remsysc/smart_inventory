@@ -38,4 +38,22 @@ public class SaleService {
 
         System.out.println("✓ Sale recorded: " + sale);
     }
+
+    public void displayAllSales() {
+        if (sales.isEmpty()) {
+            System.out.println("No sales recorded.");
+            return;
+        }
+
+        System.out.println("\n=== SALES TRANSACTIONS ===");
+        for (int i = 0; i < sales.size(); i++) {
+            Sale s = (Sale) sales.get(i);  // ← EXPLICIT CAST
+            System.out.println(s);
+        }
+    }
+
+    // for ReportService access
+    DoublyLinkedList getAllSales() {
+        return sales;
+    }
 }

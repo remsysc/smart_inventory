@@ -20,6 +20,13 @@ public class Sale {
         this.totalAmount = unitPrice * quantity;
         this.date = date;
     }
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
 
     public UUID getId() {
         return id;
