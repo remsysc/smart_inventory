@@ -3,7 +3,7 @@ package entities;
 public class DoublyLinkedList {
     private Node head;
     private Node tail;
-    private  int size;
+    private int size;
 
     private class Node {
          Object data;
