@@ -85,4 +85,21 @@ public class DoublyLinkedList {
     public  boolean isEmpty(){
         return  size == 0;
     }
+
+    public void display(){
+        if(isEmpty()){
+            System.out.println("List is empty");
+            return;
+        }
+        Node current = head;
+        System.out.print("[");
+        while(current != null){
+            System.out.print(current.data);
+            if(current.next != null){
+                System.out.println(", ");
+            }
+            current = current.next;
+        }
+        System.out.println("]");
+    }
 }
