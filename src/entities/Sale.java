@@ -1,19 +1,32 @@
 package entities;
 
+import java.util.UUID;
+
 public class Sale {
+    private UUID id;
+    private String productId;
     private String productName;
     private int quantity;
-    private double price;
+    private double unitPrice;
     private double totalAmount;
     private String date;
 
-    public Sale(String productName, int quantity, double price, double totalAmount, String date) {
+    public Sale(String productId, String productName, int quantity, double unitPrice, String date) {
+        this.id = UUID.randomUUID();
+        this.productId = productId;
         this.productName = productName;
         this.quantity = quantity;
-        this.price = price;
-        this.totalAmount = totalAmount;
+        this.unitPrice = unitPrice;
+        this.totalAmount = unitPrice * quantity;
         this.date = date;
     }
+
+    public UUID getId() {
+        return id;
+    }
+
+
+
     public String getProductName() {
         return productName;
     }
@@ -30,12 +43,12 @@ public class Sale {
         this.quantity = quantity;
     }
 
-    public double getPrice() {
-        return price;
+    public double getUnitPrice() {
+        return unitPrice;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
     public double getTotalAmount() {

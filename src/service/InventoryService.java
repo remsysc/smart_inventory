@@ -32,6 +32,16 @@ public class InventoryService {
         return  null;
     }
 
+    public void updateProductName(String id, String newName){
+        Product product = findProductById(id);
+        if(product == null){
+            throw new IllegalArgumentException("Product not found: " + id);
+        }
+        String oldName = product.getName();
+        product.setName(newName);
+        System.out.println("✓ Updated name for " + oldName + " to " + newName);
+    }
+
     public void updateProductQuantity(String id, int newQuantity){
         Product product = findProductById(id);
         if(product == null){
@@ -51,7 +61,7 @@ public class InventoryService {
             }
         }
     }
-
+    //TODO: FORWARD & BACKWARD DISPLAY
     public  void displayAllProducts(){
         if(products.isEmpty()){
             System.out.println("No products in inventory");
