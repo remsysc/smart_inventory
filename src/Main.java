@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    public  static Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args) {
+    static final Scanner scanner = new Scanner(System.in);
+    static void main(String[] args) {
         smartInventoryApp();
     }
 
@@ -25,11 +25,14 @@ public class Main {
 
         while (true) {
             String choice = readString(
-                "\nSmart Inventory Management System\n" +
-                    "1. Products\n" +
-                    "2. Sales\n" +
-                    "3. Reports\n" +
-                    "4. Exit\n"
+                    """
+                            
+                            Smart Inventory Management System
+                            1. Products
+                            2. Sales
+                            3. Reports
+                            4. Exit
+                            """
             );
 
             switch (choice) {
@@ -38,6 +41,7 @@ public class Main {
                 case "3" -> reportMenu(reportService);
                 case "4" -> {
                     System.out.println("Exiting the application. Goodbye!");
+                    scanner.close();
                     return;
                 }
             }
@@ -47,12 +51,15 @@ public class Main {
     public static void reportMenu(ReportService reportService) {
         while (true) {
             String choice = readString(
-                "\nReports Menu\n" +
-                    "1. Total Number of Products\n" +
-                    "2. Highest Product Sales\n" +
-                    "3. Out of Stock Products\n" +
-                    "4. Total Sales Revenue\n" +
-                    "5. Back to Main Menu\n"
+                    """
+                            
+                            Reports Menu
+                            1. Total Number of Products
+                            2. Highest Product Sales
+                            3. Out of Stock Products
+                            4. Total Sales Revenue
+                            5. Back to Main Menu
+                            """
             );
 
             switch (choice) {
@@ -96,10 +103,13 @@ public class Main {
     public static void saleMenu(SaleService saleService) {
         while (true) {
             String choice = readString(
-                "\nSales Menu\n" +
-                    "1. Record Sale\n" +
-                    "2. View Sales\n" +
-                    "3. Back to Main Menu\n"
+                    """
+                            
+                            Sales Menu
+                            1. Record Sale
+                            2. View Sales
+                            3. Back to Main Menu
+                            """
             );
 
             switch (choice) {
@@ -126,13 +136,16 @@ public class Main {
     public static void productMenu(InventoryService inventoryService) {
         while (true) {
             String choice = readString(
-                "\nProduct Menu\n" +
-                    "1. Add Product\n" +
-                    "2. View Products\n" +
-                    "3. Update Product Details\n" +
-                    "4. Delete Product\n" +
-                    "5. Search Product by ID\n" +
-                    "6. Back to Main Menu\n"
+                    """
+                            
+                            Product Menu
+                            1. Add Product
+                            2. View Products
+                            3. Update Product Details
+                            4. Delete Product
+                            5. Search Product by ID
+                            6. Back to Main Menu
+                            """
             );
 
             switch (choice) {
@@ -156,7 +169,10 @@ public class Main {
                 }
                 case "2" -> {
                     String input = readString(
-                        "1. Ascending List\n" + "2. Descending List\n"
+                            """
+                                    1. Ascending List
+                                    2. Descending List
+                                    """
                     );
                     if (input.equals("1")) {
                         inventoryService.displayProductsForward();
@@ -234,17 +250,17 @@ public class Main {
                 new Product("P005", "Webcam", 89.99, 15)
             );
 
-            // Record somesaleService
+            // Record some saleService
             saleService.recordSale("P001", 3); // Sell 3 laptops
             saleService.recordSale("P002", 10); // Sell 10 mice
             saleService.recordSale("P001", 2); // Sell 2 more laptops
             saleService.recordSale("P003", 5); // Sell 5 keyboards
             saleService.recordSale("P005", 15); // Sell all webcams (out of stock)
 
-            // Display currentinventoryService
+            // Display current inventoryService
             inventoryService.displayProductsForward();
 
-            // DisplaysaleService
+            // Display saleService
             saleService.displayAllSales();
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());

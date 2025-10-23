@@ -6,7 +6,7 @@ public class DoublyLinkedList {
     private Node tail;
     private int size;
 
-    private class Node {
+    private static class Node {
 
         Object data;
         Node next;
@@ -55,7 +55,7 @@ public class DoublyLinkedList {
         return current.data;
     }
 
-    public Object remove(int index) {
+    public void remove(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException(
                 "Index:" + index + ", Size " + size
@@ -66,7 +66,6 @@ public class DoublyLinkedList {
         for (int i = 0; i < index; i++) {
             current = current.next;
         }
-        Object data = current.data;
         if (current.prev != null) {
             current.prev.next = current.next;
         } else {
@@ -79,7 +78,6 @@ public class DoublyLinkedList {
             tail = current.prev;
         }
         size--;
-        return data;
     }
 
     public int size() {
@@ -90,20 +88,5 @@ public class DoublyLinkedList {
         return size == 0;
     }
 
-    public void display() {
-        if (isEmpty()) {
-            System.out.println("List is empty");
-            return;
-        }
-        Node current = head;
-        System.out.print("[");
-        while (current != null) {
-            System.out.print(current.data);
-            if (current.next != null) {
-                System.out.println(", ");
-            }
-            current = current.next;
-        }
-        System.out.println("]");
-    }
+
 }

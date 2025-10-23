@@ -4,6 +4,9 @@ import entities.DoublyLinkedList;
 import entities.Product;
 import entities.Sale;
 
+/**
+ * Not a record: contains business logic
+ */
 public class ReportService {
 
     private final InventoryService inventoryService;

@@ -9,12 +9,10 @@ public class SaleService {
 
     private final DoublyLinkedList sales;
     private final InventoryService inventoryService;
-    private int saleCounter;
 
     public SaleService(InventoryService inventoryService) {
         this.sales = new DoublyLinkedList();
         this.inventoryService = inventoryService;
-        this.saleCounter = 1;
     }
 
     public void recordSale(String productId, int quantity) {
