@@ -44,6 +44,7 @@ public class ReportService {
         }
         if (sales.isEmpty()) {
             System.out.println("No sales available.");
+            return;
         }
 
         String topProductId = null;
