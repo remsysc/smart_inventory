@@ -42,6 +42,9 @@ public class ReportService {
             System.out.println("No products available.");
             return;
         }
+        if (sales.isEmpty()) {
+            System.out.println("No sales available.");
+        }
 
         String topProductId = null;
         String topProductName = null;
@@ -67,9 +70,6 @@ public class ReportService {
                 topProductName = product.getName();
                 totalQuantitySold = productQuantitySold;
             }
-        }
-        if (topProductId == null) {
-            return;
         }
 
         System.out.println("Product with Highest Sales:");

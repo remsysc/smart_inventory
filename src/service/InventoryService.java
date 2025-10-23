@@ -75,12 +75,11 @@ public class InventoryService {
             Product p = (Product) products.get(i);
             if (p.getId().equals(id)) {
                 products.remove(i);
-                System.out.println("✓ Product deleted: " + p.getName()); //TODO: test
+                System.out.println("✓ Product deleted: " + p.getName());
             }
         }
     }
 
-    //TODO: FORWARD & BACKWARD DISPLAY
     public void displayProductsForward() {
         if (products.isEmpty()) {
             System.out.println("No products in inventory");
@@ -106,7 +105,7 @@ public class InventoryService {
     }
 
     //for report service access
-    DoublyLinkedList getAllProducts() {
+    public DoublyLinkedList getAllProducts() {
         return products;
     }
 }

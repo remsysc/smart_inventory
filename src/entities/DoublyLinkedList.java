@@ -13,15 +13,13 @@ public class DoublyLinkedList {
         Node prev;
 
         Node(Object data) {
-            this.prev = null;
-            this.next = null;
+            this.prev = this.next = null; //explicit set to null, but not really needed
             this.data = data;
         }
     }
 
     public DoublyLinkedList() {
-        this.head = null;
-        this.tail = null;
+        this.head = this.tail = null; //explicit set to null, but not really needed
         this.size = 0;
     }
 
