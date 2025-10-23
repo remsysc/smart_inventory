@@ -76,7 +76,6 @@ public class Sale {
         this.date = date;
     }
 
-    @Override
     public String toString() {
         return String.format(
             "Sale[Product=%s, Unit Price=%.2f, Quantity=%d, Total=%.2f]",
