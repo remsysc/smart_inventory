@@ -3,15 +3,22 @@ package entities;
 import java.util.UUID;
 
 public class Sale {
-    private UUID id;
-    private String productId;
+
+    private final UUID id;
+    private final String productId;
     private String productName;
     private int quantity;
     private double unitPrice;
     private double totalAmount;
     private String date;
 
-    public Sale(String productId, String productName, int quantity, double unitPrice, String date) {
+    public Sale(
+        String productId,
+        String productName,
+        int quantity,
+        double unitPrice,
+        String date
+    ) {
         this.id = UUID.randomUUID();
         this.productId = productId;
         this.productName = productName;
@@ -20,19 +27,14 @@ public class Sale {
         this.totalAmount = unitPrice * quantity;
         this.date = date;
     }
-    public String getProductId() {
-        return productId;
-    }
-
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
 
     public UUID getId() {
         return id;
     }
 
-
+    public String getProductId() {
+        return productId;
+    }
 
     public String getProductName() {
         return productName;
@@ -74,9 +76,13 @@ public class Sale {
         this.date = date;
     }
 
-
-    public String toString(){
-        return String.format("Sale[product=%s, qty=%d, total=%.2f]",productName,quantity,totalAmount);
+    public String toString() {
+        return String.format(
+            "Sale[Product=%s, Unit Price=%.2f, Quantity=%d, Total=%.2f]",
+            productName,
+            unitPrice,
+            quantity,
+            totalAmount
+        );
     }
-
 }

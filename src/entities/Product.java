@@ -14,10 +14,9 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public  boolean isOutOfStock(){
-        return  quantity == 0;
+    public boolean isOutOfStock() {
+        return quantity == 0;
     }
-
 
     public String getId() {
         return id;
@@ -49,5 +48,15 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String toString() {
+        return String.format(
+            "Product[ID=%s, Name=%s, Price=%.2f, Quantity=%d]",
+            id,
+            name,
+            price,
+            quantity
+        );
     }
 }
