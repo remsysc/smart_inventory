@@ -75,6 +75,10 @@ public class ReportService {
         System.out.println("Product with Highest Sales:");
         System.out.println("ID: " + topProductId);
         System.out.println("Name: " + topProductName);
+        System.out.println(
+            "Unit Price: " +
+                inventoryService.findProductById(topProductId).getPrice()
+        );
         System.out.println("Total Sales: " + highestSales);
         System.out.println("Total Quantity Sold: " + totalQuantitySold);
     }

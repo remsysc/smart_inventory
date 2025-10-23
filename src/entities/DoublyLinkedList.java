@@ -87,6 +87,4 @@ public class DoublyLinkedList {
     public boolean isEmpty() {
         return size == 0;
     }
-
-
 }

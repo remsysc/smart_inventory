@@ -1,14 +1,14 @@
 import entities.DoublyLinkedList;
 import entities.Product;
+import java.util.Scanner;
 import service.InventoryService;
 import service.ReportService;
 import service.SaleService;
 
-import java.util.Scanner;
-
 public class Main {
 
     static final Scanner scanner = new Scanner(System.in);
+
     static void main(String[] args) {
         smartInventoryApp();
     }
@@ -25,14 +25,14 @@ public class Main {
 
         while (true) {
             String choice = readString(
-                    """
-                            
-                            Smart Inventory Management System
-                            1. Products
-                            2. Sales
-                            3. Reports
-                            4. Exit
-                            """
+                """
+
+                Smart Inventory Management System
+                1. Products
+                2. Sales
+                3. Reports
+                4. Exit
+                """
             );
 
             switch (choice) {
@@ -51,15 +51,15 @@ public class Main {
     public static void reportMenu(ReportService reportService) {
         while (true) {
             String choice = readString(
-                    """
-                            
-                            Reports Menu
-                            1. Total Number of Products
-                            2. Highest Product Sales
-                            3. Out of Stock Products
-                            4. Total Sales Revenue
-                            5. Back to Main Menu
-                            """
+                """
+
+                Reports Menu
+                1. Total Number of Products
+                2. Highest Product Sales
+                3. Out of Stock Products
+                4. Total Sales Revenue
+                5. Back to Main Menu
+                """
             );
 
             switch (choice) {
@@ -103,13 +103,13 @@ public class Main {
     public static void saleMenu(SaleService saleService) {
         while (true) {
             String choice = readString(
-                    """
-                            
-                            Sales Menu
-                            1. Record Sale
-                            2. View Sales
-                            3. Back to Main Menu
-                            """
+                """
+
+                Sales Menu
+                1. Record Sale
+                2. View Sales
+                3. Back to Main Menu
+                """
             );
 
             switch (choice) {
@@ -136,16 +136,16 @@ public class Main {
     public static void productMenu(InventoryService inventoryService) {
         while (true) {
             String choice = readString(
-                    """
-                            
-                            Product Menu
-                            1. Add Product
-                            2. View Products
-                            3. Update Product Details
-                            4. Delete Product
-                            5. Search Product by ID
-                            6. Back to Main Menu
-                            """
+                """
+
+                Product Menu
+                1. Add Product
+                2. View Products
+                3. Update Product Details
+                4. Delete Product
+                5. Search Product by ID
+                6. Back to Main Menu
+                """
             );
 
             switch (choice) {
@@ -169,10 +169,10 @@ public class Main {
                 }
                 case "2" -> {
                     String input = readString(
-                            """
-                                    1. Ascending List
-                                    2. Descending List
-                                    """
+                        """
+                        1. Ascending List
+                        2. Descending List
+                        """
                     );
                     if (input.equals("1")) {
                         inventoryService.displayProductsForward();
