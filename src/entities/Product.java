@@ -50,6 +50,7 @@ public class Product {
         this.quantity = quantity;
     }
 
+    @Override
     public String toString() {
         return String.format(
             "Product[ID=%s, Name=%s, Price=%.2f, Quantity=%d]",
