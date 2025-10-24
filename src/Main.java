@@ -1,9 +1,12 @@
 import entities.DoublyLinkedList;
 import entities.Product;
 import java.util.Scanner;
-import service.InventoryService;
-import service.ReportService;
-import service.SaleService;
+import service.inventory.InventoryService;
+import service.inventory.InventoryServiceImpl;
+import service.report.ReportService;
+import service.report.ReportServiceImpl;
+import service.sale.SaleService;
+import service.sale.SaleServiceImpl;
 
 public class Main {
 
@@ -14,9 +17,9 @@ public class Main {
     }
 
     public static void smartInventoryApp() {
-        InventoryService inventoryService = new InventoryService();
-        SaleService saleService = new SaleService(inventoryService);
-        ReportService reportService = new ReportService(
+        InventoryService inventoryService = new InventoryServiceImpl();
+        SaleService saleService = new SaleServiceImpl(inventoryService);
+        ReportService reportService = new ReportServiceImpl(
             inventoryService,
             saleService
         );

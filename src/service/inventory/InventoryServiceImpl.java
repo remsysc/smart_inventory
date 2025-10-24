@@ -1,13 +1,13 @@
-package service;
+package service.inventory;
 
 import entities.DoublyLinkedList;
 import entities.Product;
 
-public class InventoryService {
+public class InventoryServiceImpl implements InventoryService {
 
     private final DoublyLinkedList products;
 
-    public InventoryService() {
+    public InventoryServiceImpl() {
         this.products = new DoublyLinkedList();
     }
 

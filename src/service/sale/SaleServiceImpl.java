@@ -1,16 +1,17 @@
-package service;
+package service.sale;
 
 import entities.DoublyLinkedList;
 import entities.Product;
 import entities.Sale;
 import java.time.LocalDateTime;
+import service.inventory.InventoryService;
 
-public class SaleService {
+public class SaleServiceImpl implements SaleService {
 
     private final DoublyLinkedList sales;
     private final InventoryService inventoryService;
 
-    public SaleService(InventoryService inventoryService) {
+    public SaleServiceImpl(InventoryService inventoryService) {
         this.sales = new DoublyLinkedList();
         this.inventoryService = inventoryService;
     }
@@ -62,7 +63,7 @@ public class SaleService {
     }
 
     // for ReportService access
-    DoublyLinkedList getAllSales() {
+    public DoublyLinkedList getAllSales() {
         return sales;
     }
 }
