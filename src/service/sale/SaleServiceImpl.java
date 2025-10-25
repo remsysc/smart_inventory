@@ -1,5 +1,10 @@
 package service.sale;
 
+import entities.DoublyLinkedList;
+import entities.Product;
+import entities.Sale;
+import service.inventory.InventoryService;
+
 import java.time.LocalDateTime;
 
 /**
@@ -90,7 +95,7 @@ public class SaleServiceImpl implements SaleService {
         }
 
         // Create sale record with current timestamp
-        String date = LocalDateTime.now().toString();
+        LocalDateTime date = LocalDateTime.now();
         Sale sale = new Sale(
             productId,
             product.getName(),
