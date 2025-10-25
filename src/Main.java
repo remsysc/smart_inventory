@@ -1,20 +1,13 @@
 import entities.DoublyLinkedList;
-import entities.DoublyLinkedList;
 import entities.Product;
-import entities.Product;
+
 import java.util.Scanner;
-import java.util.Scanner;
-import service.inventory.InventoryService;
+
 import service.inventory.InventoryService;
 import service.inventory.InventoryServiceImpl;
-import service.inventory.InventoryServiceImpl;
-import service.report.ReportService;
 import service.report.ReportService;
 import service.report.ReportServiceImpl;
-import service.report.ReportServiceImpl;
 import service.sale.SaleService;
-import service.sale.SaleService;
-import service.sale.SaleServiceImpl;
 import service.sale.SaleServiceImpl;
 
 /**
