@@ -21,6 +21,7 @@ public class InventoryServiceImpl implements InventoryService {
                 );
             }
         }
+        isProductValid(product);
         products.add(product);
         System.out.println("✓ Product added: " + product.getName());
     }
@@ -41,8 +42,15 @@ public class InventoryServiceImpl implements InventoryService {
     ) {
         Product product = findProductById(id);
         if (product == null) {
-            throw new IllegalArgumentException("Product not found: " + id);
+            throw new NullPointerException("Product not found: " + id);
         }
+
+        if (newPrice < 0 || newQuantity < 0) {
+            throw new IllegalArgumentException(
+                "New price or quantity cannot be less than 0."
+            );
+        }
+
         String oldName = product.getName();
         double oldPrice = product.getPrice();
         int oldQuantity = product.getQuantity();
@@ -107,5 +115,23 @@ public class InventoryServiceImpl implements InventoryService {
     //for report service access
     public DoublyLinkedList getAllProducts() {
         return products;
+    }
+
+    private void isProductValid(Product product) {
+        if (product == null) {
+            throw new NullPointerException("Product cannot be null.");
+        }
+
+        if (product.getQuantity() < 0) {
+            throw new IllegalArgumentException(
+                "Product quantity cannot be less than 0."
+            );
+        }
+
+        if (product.getPrice() < 0) {
+            throw new IllegalArgumentException(
+                "Product price cannot be less than 0."
+            );
+        }
     }
 }

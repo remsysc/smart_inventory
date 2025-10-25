@@ -118,9 +118,7 @@ public class Main {
             switch (choice) {
                 case "1" -> {
                     String productId = readString("Enter Product ID: ");
-                    int quantity = Integer.parseInt(
-                        readString("Enter Quantity Sold: ")
-                    );
+                    int quantity = readInt("Enter quantity to sell: ");
                     try {
                         saleService.recordSale(productId, quantity);
                         System.out.println("Sale recorded successfully.");
@@ -155,12 +153,8 @@ public class Main {
                 case "1" -> {
                     String id = readString("Enter Product ID: ");
                     String name = readString("Enter Product Name: ");
-                    double price = Double.parseDouble(
-                        readString("Enter Product Price: ")
-                    );
-                    int quantity = Integer.parseInt(
-                        readString("Enter Product Quantity: ")
-                    );
+                    double price = readDouble("Enter Product Price: ");
+                    int quantity = readInt("Enter quantity: ");
                     try {
                         inventoryService.addProduct(
                             new Product(id, name, price, quantity)
@@ -188,12 +182,8 @@ public class Main {
                 case "3" -> {
                     String id = readString("Enter Product ID to update: ");
                     String name = readString("Enter new Product Name: ");
-                    double price = Double.parseDouble(
-                        readString("Enter new Product Price: ")
-                    );
-                    int quantity = Integer.parseInt(
-                        readString("Enter new Product Quantity: ")
-                    );
+                    double price = readDouble("Enter new Product Price: ");
+                    int quantity = readInt("Enter new quantity: ");
                     try {
                         inventoryService.updateProduct(
                             id,
@@ -274,5 +264,31 @@ public class Main {
         System.out.println(prompt);
         System.out.print(">> ");
         return scanner.nextLine();
+    }
+
+    public static int readInt(String prompt) {
+        while (true) {
+            try {
+                String input = readString(prompt);
+                return Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.err.println(
+                    "Invalid input. Please enter a valid integer."
+                );
+            }
+        }
+    }
+
+    public static double readDouble(String prompt) {
+        while (true) {
+            try {
+                String input = readString(prompt);
+                return Double.parseDouble(input);
+            } catch (NumberFormatException e) {
+                System.err.println(
+                    "Invalid input. Please enter a valid number."
+                );
+            }
+        }
     }
 }
